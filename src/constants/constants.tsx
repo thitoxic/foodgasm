@@ -1,0 +1,1 @@
+export const carouselTags = ['burger', 'curry', 'dumplings', 'macncheese', 'pizza', 'schnitzel', 'tomato-salad'];
