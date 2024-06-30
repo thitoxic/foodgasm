@@ -3,7 +3,7 @@ import React from "react";
 
 const MealsHeader = () => {
   return (
-    <div>
+    <div className="px-3">
       <h1 className="bg-gradient-to-r from-orange-300 to-orange-500 inline-block text-transparent bg-clip-text lg:text-5xl py-3">
         Delicious meals created by you.
       </h1>

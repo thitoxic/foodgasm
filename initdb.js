@@ -4,7 +4,7 @@ const db = sql('meals.db');
 const dummyMeals = [
   {
     title: 'Juicy Cheese Burger',
-    slug: 'juicy-cheese-burger',
+    mealId: 'juicy-cheese-burger',
     image: '/images/burger.jpg',
     summary:
       'A mouth-watering burger with a juicy beef patty and melted cheese, served in a soft bun.',
@@ -26,7 +26,7 @@ const dummyMeals = [
   },
   {
     title: 'Spicy Curry',
-    slug: 'spicy-curry',
+    mealId: 'spicy-curry',
     image: '/images/curry.jpg',
     summary:
       'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
@@ -51,7 +51,7 @@ const dummyMeals = [
   },
   {
     title: 'Homemade Dumplings',
-    slug: 'homemade-dumplings',
+    mealId: 'homemade-dumplings',
     image: '/images/dumplings.jpg',
     summary:
       'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
@@ -73,7 +73,7 @@ const dummyMeals = [
   },
   {
     title: 'Classic Mac n Cheese',
-    slug: 'classic-mac-n-cheese',
+    mealId: 'classic-mac-n-cheese',
     image: '/images/macncheese.jpg',
     summary:
       "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
@@ -98,7 +98,7 @@ const dummyMeals = [
   },
   {
     title: 'Authentic Pizza',
-    slug: 'authentic-pizza',
+    mealId: 'authentic-pizza',
     image: '/images/pizza.jpg',
     summary:
       'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
@@ -120,7 +120,7 @@ const dummyMeals = [
   },
   {
     title: 'Wiener Schnitzel',
-    slug: 'wiener-schnitzel',
+    mealId: 'wiener-schnitzel',
     image: '/images/schnitzel.jpg',
     summary:
       'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
@@ -142,7 +142,7 @@ const dummyMeals = [
   },
   {
     title: 'Fresh Tomato Salad',
-    slug: 'fresh-tomato-salad',
+    mealId: 'fresh-tomato-salad',
     image: '/images/tomato-salad.jpg',
     summary:
       'A light and refreshing salad with ripe tomatoes, fresh basil, and a tangy vinaigrette.',
@@ -167,7 +167,7 @@ const dummyMeals = [
 db.prepare(`
    CREATE TABLE IF NOT EXISTS meals (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
-       slug TEXT NOT NULL UNIQUE,
+       mealId TEXT NOT NULL UNIQUE,
        title TEXT NOT NULL,
        image TEXT NOT NULL,
        summary TEXT NOT NULL,
@@ -181,7 +181,7 @@ async function initData() {
   const stmt = db.prepare(`
       INSERT INTO meals VALUES (
          null,
-         @slug,
+         @mealId,
          @title,
          @image,
          @summary,

@@ -8,3 +8,7 @@ export const getMeals =async()=>{
     })
     return db.prepare('SELECT * FROM meals').all();
 }
+
+export const getSingleMeal = (mealId: number) => {
+    return db.prepare('SELECT * FROM meals WHERE mealId=?').get(mealId);
+}
