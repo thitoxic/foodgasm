@@ -9,6 +9,6 @@ export const getMeals =async()=>{
     return db.prepare('SELECT * FROM meals').all();
 }
 
-export const getSingleMeal = (mealId: number) => {
+export const getSingleMeal = (mealId: string) => {
     return db.prepare('SELECT * FROM meals WHERE mealId=?').get(mealId);
 }
