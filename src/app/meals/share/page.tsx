@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Image from 'next/image';
+import { shareMealtoServer } from '../../../../lib/actions';
 
 interface FormValues {
   name: string;
@@ -19,17 +20,23 @@ const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email format').required('Email is required'),
   recipeTitle: Yup.string().required('Recipe title is required'),
   summary: Yup.string().required('Summary is required'),
-  instructions: Yup.string().required('Instructions are required'),
+  instructions: Yup.string()
+  .required('Instructions are required')
+  .test('is-ordered-list', 'Instructions must be an ordered list', (value) => {
+    if (!value) return false;
+    return /^(\d+\..*(\n|$))+$/.test(value);
+  }),
   image: Yup.mixed().required('An image is required'),
 });
 
 const ShareMeal: React.FC = () => {
   const [imagePreview, setImagePreview] = useState<any>('');
   const handleSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
-    // Handle form submission
-    console.log(values);
+    shareMealtoServer(values);
     resetForm();
   };
+
+
 
   const handleImageSubmit =(file: File)=>{
     const fileReader = new FileReader();

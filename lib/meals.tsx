@@ -12,3 +12,7 @@ export const getMeals =async()=>{
 export const getSingleMeal = (mealId: string) => {
     return db.prepare('SELECT * FROM meals WHERE mealId=?').get(mealId);
 }
+
+export const saveMeal = (mealData: any) => {
+
+}
