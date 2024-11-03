@@ -19,12 +19,12 @@ const MealContent = (props: { meals: mealType[] }) => {
     return meals.map((meal) => (
       <div key={meal.id} className="p-3">
         <div className="max-w-sm border rounded-lg shadow bg-orange-200 text-black">
-          <Link href={`/meals/${meal.id}`}>
+          <Link href={`/meals/${meal.mealId}`}>
             <Image
               width={100}
               height={100}
               className="rounded-t-lg w-full h-full"
-              src={meal.image}
+              src={`${process.env.AWS_S3_IMAGE_URL}/${meal.mealId}.jpg`}
               alt={meal.title}
             />
           </Link>

@@ -5,7 +5,7 @@ const dummyMeals = [
   {
     title: 'Juicy Cheese Burger',
     mealId: 'juicy-cheese-burger',
-    image: '/images/burger.jpg',
+    image: 'juicy-cheese-burger.jpg',
     summary:
       'A mouth-watering burger with a juicy beef patty and melted cheese, served in a soft bun.',
     instructions: `
@@ -27,7 +27,7 @@ const dummyMeals = [
   {
     title: 'Spicy Curry',
     mealId: 'spicy-curry',
-    image: '/images/curry.jpg',
+    image: 'spicy-curry.jpg',
     summary:
       'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
     instructions: `
@@ -52,7 +52,7 @@ const dummyMeals = [
   {
     title: 'Homemade Dumplings',
     mealId: 'homemade-dumplings',
-    image: '/images/dumplings.jpg',
+    image: 'homemade-dumplings.jpg',
     summary:
       'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
     instructions: `
@@ -74,7 +74,7 @@ const dummyMeals = [
   {
     title: 'Classic Mac n Cheese',
     mealId: 'classic-mac-n-cheese',
-    image: '/images/macncheese.jpg',
+    image: 'classic-mac-n-cheese.jpg',
     summary:
       "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
     instructions: `
@@ -99,7 +99,7 @@ const dummyMeals = [
   {
     title: 'Authentic Pizza',
     mealId: 'authentic-pizza',
-    image: '/images/pizza.jpg',
+    image: 'authentic-pizza.jpg',
     summary:
       'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
     instructions: `
@@ -121,7 +121,7 @@ const dummyMeals = [
   {
     title: 'Wiener Schnitzel',
     mealId: 'wiener-schnitzel',
-    image: '/images/schnitzel.jpg',
+    image: 'wiener-schnitzel.jpg',
     summary:
       'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
     instructions: `
@@ -143,7 +143,7 @@ const dummyMeals = [
   {
     title: 'Fresh Tomato Salad',
     mealId: 'fresh-tomato-salad',
-    image: '/images/tomato-salad.jpg',
+    image: 'fresh-tomato-salad.jpg',
     summary:
       'A light and refreshing salad with ripe tomatoes, fresh basil, and a tangy vinaigrette.',
     instructions: `

@@ -12,7 +12,7 @@ interface FormValues {
   recipeTitle: string;
   summary: string;
   instructions: string;
-  image: File | null;
+  image: any;
 }
 
 const validationSchema = Yup.object({
@@ -22,7 +22,7 @@ const validationSchema = Yup.object({
   summary: Yup.string().required('Summary is required'),
   instructions: Yup.string()
   .required('Instructions are required')
-  .test('is-ordered-list', 'Instructions must be an ordered list', (value) => {
+  .test('is-ordered-list', 'Instructions must be an ordered list like 1. Prepare the dough 2. Preheat the pan', (value) => {
     if (!value) return false;
     return /^(\d+\..*(\n|$))+$/.test(value);
   }),
@@ -32,8 +32,16 @@ const validationSchema = Yup.object({
 const ShareMeal: React.FC = () => {
   const [imagePreview, setImagePreview] = useState<any>('');
   const handleSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
-    shareMealtoServer(values);
-    resetForm();
+    console.log('values', values)
+    const formData = new FormData();
+    formData.append("creator",values.name);
+    formData.append("creator_email", values.email);
+    formData.append("title", values.recipeTitle);
+    formData.append("summary", values.summary);
+    formData.append("instructions", values.instructions);
+    formData.append("image", values.image);
+    shareMealtoServer(formData);
+    // resetForm();
   };
 
 
@@ -60,8 +68,8 @@ const ShareMeal: React.FC = () => {
       onSubmit={handleSubmit}
     >
       {({ setFieldValue, values }) => (
-        <Form className="space-y-4 w-2/4 p-4 flex flex-col bg-black rounded shadow-md">
-          <h2 className="text-4xl text-center text-orange-300 font-bold mb-4">Submit your Recipe</h2>
+        <Form className="space-y-4 lg:w-2/4 p-4 flex flex-col bg-black rounded shadow-md">
+          <h2 className="text-4xl h-12 text-center bg-gradient-to-r from-orange-500 to-orange-300 font-bold mb-4 text-transparent bg-clip-text">Submit your Recipe</h2>
           
           <div className="flex flex-col">
             <label htmlFor="name" className="font-medium">Name</label>
@@ -128,7 +136,7 @@ const ShareMeal: React.FC = () => {
                 type="file"
                 accept="image/*"
                 className="absolute inset-0 opacity-0 cursor-pointer"
-                onChange={(event) => {
+                onChange={(event : any) => {
                   console.log('event.currentTarget.files', event.currentTarget.files)
                   setFieldValue('image', event.currentTarget.files?.[0] || null);
                   handleImageSubmit(event.currentTarget.files?.[0])
@@ -147,7 +155,7 @@ const ShareMeal: React.FC = () => {
           
           <button
             type="submit"
-            className="bg-orange-300 text-black py-2 px-4 rounded "
+            className="bg-orange-400 text-black py-2 px-4 rounded font-bold "
           >
             Submit
           </button>

@@ -10,7 +10,6 @@ const MealById = ({ params }: any) => {
   let mealInstructions = meal.instructions
     .split("\n")
     .filter((step: string) => step.trim() !== "");
-
     if(!meal){
       notFound();
     }
@@ -18,11 +17,11 @@ const MealById = ({ params }: any) => {
   return (
     <div className=" flex justify-center flex-col  items-center">
       <div className="lg:w-2/3 w-full pt-3">
-        <div className=" flex lg:flex-row flex-col">
+        <div className=" flex lg:flex-row flex-col">æ
           <div className="p-3">
             <Image
               className="rounded-lg"
-              src={meal.image}
+              src={`${process.env.AWS_S3_IMAGE_URL}/${meal.mealId}.jpg`}
               width={400}
               height={400}
             />

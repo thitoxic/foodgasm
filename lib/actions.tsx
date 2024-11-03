@@ -1,12 +1,11 @@
 'use server'
 
-export const shareMealtoServer = async (values : {
-    name: string;
-    email: string;
-    recipeTitle: string;
-    summary: string;
-    instructions: string;
-    image: File | null;
-  }) => {
-    console.log('values', values)
+import { redirect } from "next/navigation";
+import { saveMeal } from "./meals";
+import { formDataToObject } from "@/constants/constants";
+
+export const shareMealtoServer = async (values : any) => {
+    const payload = formDataToObject(values);
+    await saveMeal(payload);
+    redirect('/meals')
   }
