@@ -1,13 +1,13 @@
-const sql = require('better-sqlite3');
-const db = sql('meals.db');
+const sql = require("better-sqlite3");
+const db = sql("meals.db");
 
 const dummyMeals = [
   {
-    title: 'Juicy Cheese Burger',
-    mealId: 'juicy-cheese-burger',
-    image: 'juicy-cheese-burger.jpg',
+    title: "Juicy Cheese Burger",
+    mealId: "juicy-cheese-burger",
+    image: "juicy-cheese-burger.jpg",
     summary:
-      'A mouth-watering burger with a juicy beef patty and melted cheese, served in a soft bun.',
+      "A mouth-watering burger with a juicy beef patty and melted cheese, served in a soft bun.",
     instructions: `
       1. Prepare the patty:
          Mix 200g of ground beef with salt and pepper. Form into a patty.
@@ -21,15 +21,15 @@ const dummyMeals = [
       4. Serve:
          Complete the assembly with the top bun and serve hot.
     `,
-    creator: 'John Doe',
-    creator_email: 'johndoe@example.com',
+    creator: "John Doe",
+    creator_email: "johndoe@example.com",
   },
   {
-    title: 'Spicy Curry',
-    mealId: 'spicy-curry',
-    image: 'spicy-curry.jpg',
+    title: "Spicy Curry",
+    mealId: "spicy-curry",
+    image: "spicy-curry.jpg",
     summary:
-      'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
+      "A rich and spicy curry, infused with exotic spices and creamy coconut milk.",
     instructions: `
       1. Chop vegetables:
          Cut your choice of vegetables into bite-sized pieces.
@@ -46,15 +46,15 @@ const dummyMeals = [
       5. Serve:
          Enjoy this creamy curry with rice or bread.
     `,
-    creator: 'Max Schwarz',
-    creator_email: 'max@example.com',
+    creator: "Max Schwarz",
+    creator_email: "max@example.com",
   },
   {
-    title: 'Homemade Dumplings',
-    mealId: 'homemade-dumplings',
-    image: 'homemade-dumplings.jpg',
+    title: "Homemade Dumplings",
+    mealId: "homemade-dumplings",
+    image: "homemade-dumplings.jpg",
     summary:
-      'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
+      "Tender dumplings filled with savory meat and vegetables, steamed to perfection.",
     instructions: `
       1. Prepare the filling:
          Mix minced meat, shredded vegetables, and spices.
@@ -68,13 +68,13 @@ const dummyMeals = [
       4. Serve:
          Enjoy these dumplings hot, with a dipping sauce of your choice.
     `,
-    creator: 'Emily Chen',
-    creator_email: 'emilychen@example.com',
+    creator: "Emily Chen",
+    creator_email: "emilychen@example.com",
   },
   {
-    title: 'Classic Mac n Cheese',
-    mealId: 'classic-mac-n-cheese',
-    image: 'classic-mac-n-cheese.jpg',
+    title: "Classic Mac n Cheese",
+    mealId: "classic-mac-n-cheese",
+    image: "classic-mac-n-cheese.jpg",
     summary:
       "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
     instructions: `
@@ -93,15 +93,15 @@ const dummyMeals = [
       5. Serve:
          Serve hot, garnished with parsley if desired.
     `,
-    creator: 'Laura Smith',
-    creator_email: 'laurasmith@example.com',
+    creator: "Laura Smith",
+    creator_email: "laurasmith@example.com",
   },
   {
-    title: 'Authentic Pizza',
-    mealId: 'authentic-pizza',
-    image: 'authentic-pizza.jpg',
+    title: "Authentic Pizza",
+    mealId: "authentic-pizza",
+    image: "authentic-pizza.jpg",
     summary:
-      'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
+      "Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.",
     instructions: `
       1. Prepare the dough:
          Knead pizza dough and let it rise until doubled in size.
@@ -115,15 +115,15 @@ const dummyMeals = [
       4. Serve:
          Slice hot and enjoy with a sprinkle of basil leaves.
     `,
-    creator: 'Mario Rossi',
-    creator_email: 'mariorossi@example.com',
+    creator: "Mario Rossi",
+    creator_email: "mariorossi@example.com",
   },
   {
-    title: 'Wiener Schnitzel',
-    mealId: 'wiener-schnitzel',
-    image: 'wiener-schnitzel.jpg',
+    title: "Wiener Schnitzel",
+    mealId: "wiener-schnitzel",
+    image: "wiener-schnitzel.jpg",
     summary:
-      'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
+      "Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.",
     instructions: `
       1. Prepare the veal:
          Pound veal cutlets to an even thickness.
@@ -137,15 +137,15 @@ const dummyMeals = [
       4. Serve:
       Serve hot with a slice of lemon and a side of potato salad or greens.
  `,
-    creator: 'Franz Huber',
-    creator_email: 'franzhuber@example.com',
+    creator: "Franz Huber",
+    creator_email: "franzhuber@example.com",
   },
   {
-    title: 'Fresh Tomato Salad',
-    mealId: 'fresh-tomato-salad',
-    image: 'fresh-tomato-salad.jpg',
+    title: "Fresh Tomato Salad",
+    mealId: "fresh-tomato-salad",
+    image: "fresh-tomato-salad.jpg",
     summary:
-      'A light and refreshing salad with ripe tomatoes, fresh basil, and a tangy vinaigrette.',
+      "A light and refreshing salad with ripe tomatoes, fresh basil, and a tangy vinaigrette.",
     instructions: `
       1. Prepare the tomatoes:
         Slice fresh tomatoes and arrange them on a plate.
@@ -159,12 +159,13 @@ const dummyMeals = [
       4. Serve:
          Enjoy this simple, flavorful salad as a side dish or light meal.
     `,
-    creator: 'Sophia Green',
-    creator_email: 'sophiagreen@example.com',
+    creator: "Sophia Green",
+    creator_email: "sophiagreen@example.com",
   },
 ];
 
-db.prepare(`
+db.prepare(
+  `
    CREATE TABLE IF NOT EXISTS meals (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
        mealId TEXT NOT NULL UNIQUE,
@@ -175,11 +176,12 @@ db.prepare(`
        creator TEXT NOT NULL,
        creator_email TEXT NOT NULL
     )
-`).run();
+`
+).run();
 
 async function initData() {
   const stmt = db.prepare(`
-      INSERT INTO meals VALUES (
+      INSERT OR IGNORE INTO meals VALUES (
          null,
          @mealId,
          @title,
